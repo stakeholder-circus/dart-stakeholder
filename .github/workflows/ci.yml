@@ -8,11 +8,14 @@ permissions:
   contents: read
 
 jobs:
-  scaffold:
+  native:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+      - uses: dart-lang/setup-dart@v1
+      - run: dart pub get
       - run: python3 scripts/validate_scaffold.py
+      - run: dart format --set-exit-if-changed .
+      - run: dart analyze
+      - run: dart test
+      - run: mkdir -p build && dart compile exe bin/stakeholder.dart -o build/stakeholder

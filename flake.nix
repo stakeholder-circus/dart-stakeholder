@@ -1,5 +1,5 @@
 {
-  description = "stakeholder-circus dart-stakeholder scaffold";
+  description = "stakeholder-circus dart-stakeholder";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
@@ -12,7 +12,7 @@
         let pkgs = import nixpkgs { inherit system; };
         in {
           default = pkgs.mkShell {
-            packages = with pkgs; [ git jq python312 ];
+            packages = with pkgs; [ dart git jq python312 ];
           };
         });
       apps = forAllSystems (system:
@@ -22,10 +22,10 @@
               program = "${pkgs.writeShellScript name text}";
             };
         in {
-          build = mk "build" ''python3 scripts/validate_scaffold.py'';
-          test = mk "test" ''python3 scripts/validate_scaffold.py'';
-          check = mk "check" ''python3 scripts/validate_scaffold.py'';
-          format = mk "format" ''python3 scripts/validate_scaffold.py'';
+          build = mk "build" ''mkdir -p build && dart pub get && dart analyze && dart test && dart compile exe bin/stakeholder.dart -o build/stakeholder'';
+          test = mk "test" ''dart pub get && dart test'';
+          check = mk "check" ''mkdir -p build && python3 scripts/validate_scaffold.py && dart pub get && dart format --set-exit-if-changed . && dart analyze && dart test && dart compile exe bin/stakeholder.dart -o build/stakeholder'';
+          format = mk "format" ''dart format .'';
         });
     };
 }
