@@ -2,11 +2,11 @@
 
 ## Role
 
-Portable CLI scaffold.
+Portable full-parity lane.
 
 ## Parity class
 
-- scaffold-target
+- full-parity-target
 
 ## Method and Review Model
 
@@ -16,8 +16,9 @@ Portable CLI scaffold.
 - Derived from giacomo-b/rust-stakeholder where applicable
 - Missing behavior must fail fast and be recorded explicitly in GAPS.md
 
-## Promotion prerequisites
+## Current tranche
 
-- Land deterministic CLI generation, fixture parity, and stable packaging across platforms.
-- Preserve deterministic normalized JSON and the shared CLI contract from stakeholder-core.
-- Keep provenance and attribution explicit as implementation depth is added.
+- Classic-six dedicated families are implemented locally.
+- Modern-core dedicated families are implemented locally.
+- Later packet families remain grouped fallback only.
+- Live-provider runtime is intentionally deferred and tracked as an explicit program gap.
