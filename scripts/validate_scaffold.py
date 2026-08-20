@@ -27,9 +27,9 @@ required = [
     '.github/dependabot.yml',
     '.github/workflows/actionlint.yml',
     '.github/workflows/dependency-review.yml',
-    '.github/workflows/ci.yml',
     '.github/workflows/ci-native.yml',
     '.github/workflows/docker-smoke.yml',
+    '.github/workflows/security-analysis.yml',
     'flake.nix',
     'flake.lock',
 ]
