@@ -6,9 +6,6 @@ updates:
       interval: weekly
     cooldown:
       default-days: 7
-      semver-major-days: 30
-      semver-minor-days: 7
-      semver-patch-days: 3
   - package-ecosystem: pub
     directory: /
     schedule:
@@ -24,6 +21,3 @@ updates:
       interval: weekly
     cooldown:
       default-days: 7
-      semver-major-days: 30
-      semver-minor-days: 7
-      semver-patch-days: 3
